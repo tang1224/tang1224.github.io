@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0;">
 </head>
 
-<body class="splash-page">
+<body class='landing-page  wsite-theme-light'>
 
 	<div id="wrapper">
 
@@ -23,16 +23,16 @@
 
 		<div id="panel-two">
 			<div id="banner">
-				<div class="container">
-					<h2>{headline:text global="false"}</h2>
-					<p>{headline-paragraph:text global="false"}</p>
-					<div class="button-wrap">{action:button global="false"}</div>
-				</div>
+				{{#header}}
+					<div class="container">{content}</div>
+				{{/header}}
 		    </div>
 
-			<div id="main">
-				<div class="container">{content}</div>
-			</div>
+		    <div id="main">
+				{{#sections}}
+					<div class="container">{content}</div>
+				{{/sections}}
+		    </div>
 
 			<div id="footer">{footer}</div>
 		</div>
