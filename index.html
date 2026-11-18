@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
-  <title>YU SOUP — Personal Site</title>
+  <title>Ris — Personal Site</title>
   <style>
     :root{
       --bg:#111317; --panel:#1b1e24; --panel2:#222630; --ink:#f2f0eb;
@@ -37,7 +37,7 @@
     .intro{max-width:560px;color:#c0c1c5;font-size:16px;line-height:1.9;white-space:pre-line}
     .hero-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border-radius:999px;background:var(--accent);color:#171a12;font-size:13px;font-weight:800}
-    .pill.secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
+    .pill.secondary{background:transparent;color:var(--accent);border:1px solid var(--line)}
     .visual{position:relative;min-height:390px;border:1px solid #444955;border-radius:4px 100px 4px 4px;background:linear-gradient(145deg,#2a2e38,#171a20 70%);overflow:hidden;display:grid;place-items:center}
     .visual:before,.visual:after{content:"";position:absolute;border:1px solid #a8b9ff66;border-radius:50%;width:290px;height:290px;transform:rotate(-28deg)}
     .visual:after{width:220px;height:360px;border-color:#c9f06b88;transform:rotate(35deg)}
@@ -53,11 +53,15 @@
     .panel{background:var(--panel);border:1px solid var(--line);padding:26px;border-radius:4px}
     .panel h3{font:500 23px var(--serif);margin:0 0 12px}
     .panel p{margin:0;color:#b8bac1;font-size:14px;line-height:1.9;white-space:pre-line}
+    .panel b{margin:0;color:var(--accent2);font-size:14px;line-height:1.9;white-space:pre-line}
+    .panel strong{margin:0;color:var(--accent);font-size:14px;line-height:1.9;white-space:pre-line}
+    .panel a{margin:0;color:var(--accent);font-size:14px;line-height:1.9;white-space:pre-line}
+    .panel a.pill{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border-radius:999px;background:var(--accent);color:#171a12;font-size:13px;font-weight:800}
     .image-links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
     .image-link{display:block;min-width:0}
     .image-slot{aspect-ratio:4/3;border:1px dashed #626977;background:linear-gradient(135deg,#252a34,#181b21);display:grid;place-items:center;color:#aeb4c1;font-size:12px;text-align:center;padding:12px;overflow:hidden}
     .image-slot img{width:100%;height:100%;object-fit:cover}
-    .image-caption{display:block;margin-top:9px;color:#d8d9dc;font-size:12px}
+    .image-caption{display:block;margin-top:9px;color:var(--accent);font-size:12px}
     .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .project{background:var(--panel);border:1px solid var(--line);padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
     .project:hover{transform:translateY(-4px);border-color:var(--accent)}
@@ -68,6 +72,8 @@
     .contact{display:flex;justify-content:space-between;align-items:center;gap:24px;background:var(--panel2);padding:30px;border:1px solid var(--line)}
     .contact h2{font:500 30px var(--serif);margin:0 0 5px}
     .contact p{margin:0;color:var(--muted);font-size:13px}
+    .email-copy {display: flex;align-items: center;gap: 12px;flex-wrap: wrap;}
+    .email-copy span {font-size: 14px;color: var(--ink);}
     footer{padding:28px 0 40px;color:#777d88;font-size:11px;display:flex;justify-content:space-between;gap:15px}
     @media(max-width:760px){
       .shell{width:min(100% - 30px,560px)}
@@ -95,7 +101,7 @@
 <div class="noise"></div>
 <header>
   <div class="shell topbar">
-    <a class="brand" href="#home">YU <span>✳</span> SOUP</a>
+    <a class="brand" href="#home">Ris <span>✳</span> Rapafu</a>
     <nav aria-label="主要導覽">
       <div class="nav-item">
         <button class="nav-button" aria-expanded="false">首頁⌄</button>
@@ -120,15 +126,12 @@
 <main class="shell">
   <section class="hero" id="home" style="border:0">
     <div>
-      <div class="eyebrow">Personal playground · Since whenever</div>
-      <h1>A little<br><em>奇想宇宙</em></h1>
-      <p class="intro" id="introText">嗨，歡迎來到我的個人網站。
-這裡放創作、委託、小工具，以及一些突然想做出來的東西。
-
-把這段文字換成你的自我介紹吧。</p>
+      <div class="eyebrow">Personal playground · Since 2026</div>
+      <h1>親子丼的<br><em>辛辣香料罐</em></h1>
+      <p class="intro" id="introText">希望你成年了再來逛👾</p>
       <div class="hero-links">
-        <a class="pill" href="#about">認識這個人 ↗</a>
-        <a class="pill secondary" href="#projects">逛逛我的作品</a>
+        <a class="pill" href="#about">About me ↗</a>
+        <a class="pill secondary" href="#commission">委託資訊</a>
       </div>
     </div>
     <div class="visual" aria-label="首頁主視覺圖片位置">
@@ -140,61 +143,73 @@
   </section>
 
   <section id="about">
-    <div class="section-head"><div><div class="eyebrow">01 / About</div><h2>關於這個人</h2></div><p>簡介、喜好、正在做的事</p></div>
+    <div class="section-head"><div><div class="eyebrow">01 / About</div><h2>Ris🐍 鯉酥🐟</h2></div><p>直接叫綽號就可以，不要寶寶親親大人媽咪</p></div>
     <div class="about-grid">
       <div class="panel">
         <h3>About me</h3>
         <p>在這裡寫自介。
 例如：平常畫圖、做一些小工具，偶爾研究新東西。歡迎隨意逛逛。
-
-可以放你的創作方向、喜歡的題材、社群帳號等等。</p>
+</p>
       </div>
       <div class="panel">
         <h3>Currently into</h3>
-        <p>✳ Illustration / Fanart
-✳ Tiny web experiments
-✳ Making things just because
-
-這一欄也可以改成近況、興趣清單，或一句你想留給訪客的話。</p>
+        <p>✳ 近況：常駐在<a href="https://www.threads.com/@risppf666">Threads</a>、塗鴉即時更新、日常廢文很多。只想看圖可以追蹤<a href="https://www.instagram.com/risppf666">IG</a>或<a href="https://x.com/rispapafu">X</a>，然後把限時動態消音🔇
+✳ 最近這幾年在<b>燈炎</b>坑裡，略沾一點悠脹⋯
+✳ <b>委託開放中!歡迎委託！Commision OPEN!</b>
+</p>
       </div>
     </div>
   </section>
 
   <section id="gallery">
-    <div class="section-head"><div><div class="eyebrow">02 / Visual notes</div><h2>圖片與連結</h2></div><p>放作品圖、社群入口或喜歡的頁面</p></div>
+    <div class="section-head"><div><div class="eyebrow">02 / Visual notes</div><h2>同人、OC 創作及委託</h2></div><p>創作集中的地方</p></div>
     <div class="image-links">
-      <a class="image-link" href="#" target="_blank" rel="noopener"><div class="image-slot">圖片位置 01<br>替換成圖片或圖片網址</div><span class="image-caption">作品／社群連結 01 ↗</span></a>
-      <a class="image-link" href="#" target="_blank" rel="noopener"><div class="image-slot">圖片位置 02<br>替換成圖片或圖片網址</div><span class="image-caption">作品／社群連結 02 ↗</span></a>
-      <a class="image-link" href="#" target="_blank" rel="noopener"><div class="image-slot">圖片位置 03<br>替換成圖片或圖片網址</div><span class="image-caption">作品／社群連結 03 ↗</span></a>
+      <a class="image-link" href="https://x.com/rispapafu" target="_blank" rel="noopener"><div class="image-slot">圖片位置 01<br>替換成圖片或圖片網址</div><span class="image-caption">同人創作／X ↗</span></a>
+      <a class="image-link" href="#" target="_blank" rel="noopener"><div class="image-slot">圖片位置 02<br>替換成圖片或圖片網址</div><span class="image-caption">OCs/施工中🚧 ↗</span></a>
+      <a class="image-link" href="#" target="_blank" rel="noopener"><div class="image-slot">圖片位置 03<br>替換成圖片或圖片網址</div><span class="image-caption">委託及轉蛋／噗浪🚧待更新 ↗</span></a>
     </div>
   </section>
 
   <section id="projects">
-    <div class="section-head"><div><div class="eyebrow">03 / Playground</div><h2>做過的東西</h2></div><p>小遊戲、網頁實驗、無聊但快樂的作品</p></div>
+    <div class="section-head"><div><div class="eyebrow">03 / Playground</div><h2> 同人女在幹嘛</h2></div><p>沒事東搞西搞。</p></div>
     <div class="projects">
-      <a class="project" href="https://example.com/project-1" target="_blank" rel="noopener"><div><span class="num">PROJECT — 01</span><h3>小遊戲名稱一</h3><p>用一句話介紹這個作品。</p></div><span class="visit">PLAY / VISIT ↗</span></a>
-      <a class="project" href="https://example.com/project-2" target="_blank" rel="noopener"><div><span class="num">PROJECT — 02</span><h3>小遊戲名稱二</h3><p>用一句話介紹這個作品。</p></div><span class="visit">PLAY / VISIT ↗</span></a>
-      <a class="project" href="https://example.com/project-3" target="_blank" rel="noopener"><div><span class="num">PROJECT — 03</span><h3>小遊戲名稱三</h3><p>用一句話介紹這個作品。</p></div><span class="visit">PLAY / VISIT ↗</span></a>
+      <a class="project" href="https://dbenpregnant.netlify.app/" target="_blank" rel="noopener"><div><span class="num">PROJECT — 01</span><h3>燈炎信心香煎🔞文字格鬥ゲーム</h3><p>MHA CP: 轟燈矢x轟炎司 <br> 玩完歡迎來SNS罵我：）</p></div><span class="visit">PLAY / VISIT ↗</span></a>
+      <a class="project" href="https://tang1224.github.io/Halftonetool/" target="_blank" rel="noopener"><div><span class="num">PROJECT — 02</span><h3>Half - tone tool</h3><p>半色調小工具 <br> 美麗的意外</p></div><span class="visit">PLAY / VISIT ↗</span></a>
+      <a class="project" href="還沒有連結 " target="_blank" rel="noopener"><div><span class="num">PROJECT — 03</span><h3>快做好了</h3><p>大概</p></div><span class="visit">PLAY / VISIT ↗</span></a>
     </div>
   </section>
 
   <section id="commission">
-    <div class="section-head"><div><div class="eyebrow">04 / Commission</div><h2>委託入口</h2></div><p>把訪客帶到正式委託說明頁</p></div>
+    <div class="section-head"><div><div class="eyebrow">04 / Commission</div><h2>委託入口</h2></div><p>感想瀏覽，請務必看完🫰</p></div>
     <div class="panel">
       <h3>Commission info</h3>
-      <p>這裡可以放委託簡介、目前是否開放、委託流程等。
-正式委託頁完成後，把下方連結改成你的委託頁網址。</p>
-      <div class="hero-links"><a class="pill" href="commission.html">前往委託頁 ↗</a></div>
+      <p>
+      委託注意事項：
+      1. 角色髮色若因為環境光有色偏，草稿效果僅供參考，以完稿為主，事後僅提供微幅調色，不會重畫。
+      2. 雜線溢色無可避免，我畫風就長那樣🫰
+      3. 背景會使用筆刷及素材打底再加筆，若有額外堅持需特別提出，價錢另議。
+      4. <b>初次委託不接有場景的圖。</b>
+      
+      ⭕️BL,BG,GL同人& 原創 & 夢向，大男、老人、盔甲。
+      ❌婉拒五夏五以外的五條悟CP、轟炎司夢向（但五安可以）、狗和無毛雛鳥。
+      委託狀況：<b>準備開放</b>
+      委託流程：
+還沒把下方連結改成委託頁網址。</p>
+      <div class="hero-links"><a class="pill" href="commission.html">前往委託報價頁 ↗</a></div>
     </div>
   </section>
 
   <section id="contact">
     <div class="contact">
-      <div><h2>Say hello.</h2><p>聯絡信箱、社群帳號或其他入口放在這裡。</p></div>
-      <a class="pill" href="mailto:hello@example.com">CONTACT ↗</a>
+      <div><h2>Contact me</h2><p>以下地方皆能討論委託：<br>
+      DC討論✓✓✓聯絡信箱✓✓社群私訊✓ </p></div>
+      <div class="email-copy"><span>amber220623 ☻ ġmäil.ċőm</span>
+              <button class="pill secondary" id="copyEmail">copy↗</button></div>
+      <a class="pill secondary" href="https://discord.gg/rH3vTqxw">DC ↗</a>
+      <a class="pill secondary" href="https://www.instagram.com/risppf666">IG ↗</a>      
     </div>
   </section>
-  <footer><span>© YU SOUP · PERSONAL WEBSITE</span><span>Made of curiosity & spare time.</span></footer>
+  <footer><span>© Ris · PERSONAL WEBSITE</span><span>Made of curiosity & spare time.</span></footer>
 </main>
 <script>
   const items = document.querySelectorAll('.nav-item');
@@ -211,8 +226,21 @@
   });
   document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown').forEach(drop => drop.classList.remove('open'));
-    document.querySelectorAll('.nav-button').forEach(btn => btn.setAttribute('aria-expanded','false'));
+    document.querySelectorAll('.nav-button').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
   });
+  
+ 
+document.getElementById('copyEmail').addEventListener('click', async () => {
+  const email = 'amber220623@gmail.com';
+
+  try {
+    await navigator.clipboard.writeText(email);
+    document.getElementById('copyEmail').textContent = '已複製 ✓';
+  } catch (err) {
+    prompt('請手動複製信箱：', email);
+  }
+});
+  
 </script>
 </body>
 </html>
