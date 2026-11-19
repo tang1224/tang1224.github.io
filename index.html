@@ -1,3 +1,5 @@
+網站
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -95,7 +97,134 @@
       footer{flex-direction:column}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  </style>
+
+.commission-notes {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--ink, #f2f0eb);
+  line-height: 1.9;
+  font-family: var(--sans, sans-serif);
+}
+
+.commission-notes h2 {
+  font-family: var(--serif, Georgia, serif);
+  font-size: 1.6rem;
+  letter-spacing: .06em;
+  margin-bottom: 8px;
+  color: var(--ink, #f2f0eb);
+}
+
+.notes-intro {
+  color: var(--muted, #a6a8ae);
+  font-size: .9rem;
+  margin-bottom: 28px;
+}
+
+/* 展開區塊 */
+.notice-collapse {
+  border: 1px solid #48536b;
+  border-radius: 12px;
+  margin: 14px 0;
+  overflow: hidden;
+
+  /* 灰藍色底 */
+  background: #a8b9d5;
+
+  /* 深藍文字 */
+  color: #252d40;
+  box-shadow: 0 4px 14px rgba(0,0,0,.16);
+}
+
+/* 標題列 */
+.notice-collapse summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 19px 22px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: #252d40;
+  transition: background .2s ease;
+}
+
+.notice-collapse summary::-webkit-details-marker {
+  display: none;
+}
+
+.notice-collapse summary:hover {
+  background: #bac8df;
+}
+
+/* 展開符號 */
+.toggle-icon {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #475b7b;
+  transition: transform .25s ease;
+}
+
+.notice-collapse[open] .toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* 內文 */
+.notice-content {
+  padding: 4px 24px 26px;
+  border-top: 1px solid rgba(37,45,64,.2);
+  font-size: .94rem;
+  color: #252d40;
+}
+
+/* 小標題 */
+.notice-content h3 {
+  font-size: 1.05rem;
+  margin: 26px 0 12px;
+  padding-left: 11px;
+  border-left: 3px solid #596f99;
+  color: #202a40;
+  letter-spacing: .04em;
+}
+
+/* 清單 */
+.notice-content ol,
+.notice-content ul {
+  padding-left: 1.65em;
+}
+
+.notice-content li {
+  margin: 9px 0;
+}
+
+.notice-content p {
+  margin: 8px 0;
+}
+
+/* 清單層級 */
+.notice-content li::marker {
+  color: #596f99;
+  font-weight: 600;
+}
+
+/* 手機 */
+@media (max-width: 600px) {
+  .commission-notes h2 {
+    font-size: 1.4rem;
+  }
+
+  .notice-collapse summary {
+    padding: 16px 18px;
+  }
+
+  .notice-content {
+    padding: 4px 17px 22px;
+    font-size: .9rem;
+  }
+}
+
+</style>
 </head>
 <body>
 <div class="noise"></div>
@@ -112,8 +241,8 @@
         <div class="dropdown"><a href="#commission">委託資訊</a><a href="#contact">委託／聯絡方式</a></div>
       </div>
       <div class="nav-item">
-        <button class="nav-button" aria-expanded="false">小工具⌄</button>
-        <div class="dropdown"><a href="#projects">無聊做的小工具</a><a href="#projects">實驗作品</a></div>
+        <button class="nav-button" aria-expanded="false">小項目</button>
+        <div class="dropdown"><a href="#projects">色色文字遊戲</a><a href="#projects">半色調小工具</a></div>
       </div>
       <div class="nav-item">
         <button class="nav-button" aria-expanded="false">收藏室⌄</button>
@@ -183,15 +312,135 @@
     <div class="section-head"><div><div class="eyebrow">04 / Commission</div><h2>委託入口</h2></div><p>感想瀏覽，請務必看完🫰</p></div>
     <div class="panel">
       <h3>Commission info</h3>
-      <p>
-      委託注意事項：
-      1. 角色髮色若因為環境光有色偏，草稿效果僅供參考，以完稿為主，事後僅提供微幅調色，不會重畫。
-      2. 雜線溢色無可避免，我畫風就長那樣🫰
-      3. 背景會使用筆刷及素材打底再加筆，若有額外堅持需特別提出，價錢另議。
-      4. <b>初次委託不接有場景的圖。</b>
-      
-      ⭕️BL,BG,GL同人& 原創 & 夢向，大男、老人、盔甲。
-      ❌婉拒五夏五以外的五條悟CP、轟炎司夢向（但五安可以）、狗和無毛雛鳥。
+
+  <p class="notes-intro">
+    委託前請詳閱以下規範，送出委託即表示已了解相關注意事項。
+  </p>
+
+  <!-- 01 委託前必讀 -->
+  <details class="notice-collapse">
+    <summary>
+      <span>01. 委託前必讀</span>
+      <span class="toggle-icon">＋</span>
+    </summary>
+
+    <div class="notice-content">
+
+      <h3>一、委託內容</h3>
+      <ol>⭕️ BL、BG、GL 同人、原創、夢向、大男、老人、盔甲。</ol>
+      <olp>❌ 婉拒五夏五以外的五條悟 CP、轟炎司夢向（但五安可以）、狗和無毛雛鳥。</ol>
+
+      <h3>二、完稿時間與排程</h3>
+      <ol>
+        <li>完稿時間依品項公告及排程而定，確認委託時會提供確切交件日期。交件期限以台灣時間（UTC+8）當日 23:59 為準。</li>
+        <li>完稿途中若遇到不可抗力或個人因素需要延期，會立即告知。</li>
+        <li>急件規則：
+          <ol>
+            <li>草稿討論階段要求急件，會斟酌加收 30%～50%。</li>
+            <li>付款後要求急件不保證承接，可以選擇取消委託或維持原本交件日期。</li>
+            <li>付款後要求急件，經我方確認承接後，加收 50%～70%。</li>
+          </ol>
+        </li>
+      </ol>
+
+      <h3>三、關於畫面</h3>
+      <ol>
+        <li>角色髮色若因為環境光有色偏，草稿效果僅供參考，以完稿為主。</li>
+        <li>繪製過程中，我方如有疑問，會提供多種色光版本挑選，交稿時僅提供已選擇的版本，如有多的那就是送的。</li>
+        <li>些微雜線溢色無可避免，我畫風就長那樣🫰</li>
+        <li>背景會使用筆刷及素材打底再加筆。</li>
+      </ol>
+
+      <h3>四、委託檔案</h3>
+      <ol>
+        <li> 預設以 A4 尺寸、300dpi 製作，依構圖需求調整畫面比例及裁切範圍。如有指定尺寸或比例，請於委託前提出。（A4 的 300dpi 約為 2480 × 3508 px） </li>
+        <li>非商業委託簡單背景項目，可以要求提供透明背景版本。被環境色渲染過的恕命難從😫</li>
+        <li>不提供 PSD、CLIP 等分層原始檔。</li>
+        <li>不提供未完成草稿及過程檔案，僅提供截圖。</li>
+        <li>使用 Procreate 繪製時可以要求提供繪製過程影片。CSP 因電腦容量及設備關係無法提供過程影片；若對作畫過程有疑慮，可以錄製簡短的圖層開關影片🎦</li>
+      </ol>
+
+      <h3>五、委託過程</h3>
+      <ol>
+        <li>初次委託不承接具有複雜場景需求的案件，簡易背景不在此限。</li>
+        <li>草稿階段：
+          <ol>
+            <li>口頭討論完出草圖，付款後可以最多修改 2 次，完稿後可以小改 1 次。
+              <ul>
+                <li>小改：衣服細節、眼睛顏色、表情細節等，多項內容一次提出，算小改一次。</li>
+                <li>大改：角色姿勢、角色、構圖。</li>
+                <li>委託過程中我方主動詢問，不計入修改次數。</li>
+              </ul>
+            </li>
+            <li>給出草圖後確認委託，請於三天內匯全款。</li>
+            <li> 給出草圖後3天內未確認，視同放棄本次委託，我方會取消委託並釋出原預留名額，未來視情形保留拒絕後續委託之權利。 </li>
+            <li>給出草圖後取消委託，草圖未付費購買，不得用於其他繪師委託。（草稿買斷費用：500～800）</li>
+          </ol>
+        </li>
+        <li>完稿後：
+          <ol>
+            <li>不得交由第三方修圖、重繪、描繪原始繪畫內容。可以插隊要求加價修改，會視時間安排調整。（修改費：200/次）</li>
+            <li> 因繪師繪製錯誤、與已確認設定不符而需要修正者，不計入委託人修改次數。 </li>
+            <li>沒有排版服務，可以按自身需求裁切、排版及加字。</li>
+          </ol>
+        </li>
+        <li>取消委託：
+          <ol>
+            <li> 匯款完後，於繪製期限未到時提出取消，依照工作進度計算退回未完成之相應比例款項。會給予未完成圖片，並打上「中途取消委託」水印。 </li>
+            <li> 約定期限逾期後取消，退回全款1/3。會給予未完成圖片，並打上「逾期未完成取消委託」水印。 </li>
+            <li> 若遇到不可抗力或個人因素需要延期，而取消委託者會退回全款1/2費用，會給予未完成圖片，並打上「中途取消委託」水印。 </li>
+          </ol>
+        </li>
+      </ol>
+
+    </div>
+  </details>
+
+  <!-- 02 權利範圍 -->
+  <details class="notice-collapse">
+    <summary>
+      <span>02. 作品權利與使用規範</span>
+      <span class="toggle-icon">＋</span>
+    </summary>
+
+    <div class="notice-content">
+
+      <h3>六、權利範圍</h3>
+      <ol>
+        <li>不能有自作發言。</li>
+        <li>標示繪師時可以使用綽號、公開帳號或任何能辨識繪師身分的文字。</li>
+        <li>非商業用途委託可以在個人社群平台展示，需標註繪師。</li>
+        <li>可以作為個人頭像、桌布及收藏用途。可以用於非營利交換活動，但不得以營利為目的販售。</li>
+        <li>非商業用途委託結束後有印製需求，請私訊或寄信告知，我方回覆同意後才可印製，不得盈利販售。</li>
+        <li>授權僅限委託人本人，不得轉讓或再授權。</li>
+
+        <li>
+          商業授權費用：
+          <ul>
+            <li>二創同人小說、漫畫販售、小型同好茶會周邊：基本委託費 × 2。</li>
+            <li>其他商業用途：基本委託費 × 3。</li>
+            <li>商業販售用途（包括同人紙片及立體周邊）：基本委託費 × 4。</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>七、禁止用途</h3>
+      <ol>
+        <li>不得將作品用於 NFT、AI 訓練、AI 生成或其他未經授權的用途。</li>
+        <li>不得冒充原作者或移除繪師署名。</li>
+        <li>不得將作品轉售、轉授權予第三方。</li>
+      </ol>
+
+      <h3>八、作品展示權</h3>
+      <ol>
+        <li>繪師保留作品著作權。</li>
+        <li>繪師可以將完成作品用於個人作品集、社群展示及宣傳，均會標註委託人暱稱（可以要求不標註）。</li>
+        <li>若委託人有暫時保密需求，請於委託前提出，公開時間另行協議。</li>
+      </ol>
+
+    </div>
+  </details>
+<p>
       委託狀況：<b>準備開放</b>
       委託流程：
 還沒把下方連結改成委託頁網址。</p>
